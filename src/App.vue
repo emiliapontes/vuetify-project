@@ -2,9 +2,9 @@
   <v-app>
     <v-navigation-drawer v-model="isDrawerOpen">
       <v-list>
-        <v-list-subreader class="ml-4">
+        <v-list-subheader class="ml-4">
           Menu
-        </v-list-subreader>
+        </v-list-subheader>
         <v-list-item prepend-icon="mdi-home">Home</v-list-item>
         <v-list-item prepend-icon="mdi-account">Usuários</v-list-item>
         <v-list-group value="Clientes">
@@ -228,13 +228,23 @@
 <script>
 
   import { ref } from 'vue';
-  const isDrawerOpen = ref(false)
+  export const isDrawerOpen = ref(false);
 
   export default {
     data: () => ({
-      colors: ['#2196F3', '#90CAF9', '#64B5F6', '#42A5F5', '#1E88E5', '#1976D2', '#1565C0', '#0D47A1', '#82B1FF', '#448AFF', '#2979FF', '#2962FF'],
-      names: ['Oliver', 'Jake', 'Noah', 'James', 'Jack', 'Connor', 'Liam', 'John', 'Harry', 'Callum', 'Mason', 'Robert', 'Jacob', 'Jacob', 'Jacob', 'Michael', 'Charlie', 'Kyle', 'William', 'William', 'Thomas', 'Joe', 'Ethan', 'David', 'George', 'Reece', 'Michael', 'Richard', 'Oscar', 'Rhys', 'Alexander', 'Joseph', 'James', 'Charlie', 'James', 'Charles', 'William', 'Damian', 'Daniel', 'Thomas', 'Amelia', 'Margaret', 'Emma', 'Mary', 'Olivia', 'Samantha', 'Olivia', 'Patricia', 'Isla', 'Bethany'],
-      surnames: ['Smith', 'Anderson', 'Clark', 'Wright', 'Mitchell', 'Johnson', 'Thomas', 'Rodriguez', 'Lopez', 'Perez', 'Williams', 'Jackson', 'Lewis', 'Hill', 'Roberts', 'Jones', 'White', 'Lee', 'Scott', 'Turner', 'Brown', 'Harris', 'Walker', 'Green', 'Phillips', 'Davis', 'Martin', 'Hall', 'Adams', 'Campbell', 'Miller', 'Thompson', 'Allen', 'Baker', 'Parker', 'Wilson', 'Garcia', 'Young', 'Gonzalez', 'Evans', 'Moore', 'Martinez', 'Hernandez', 'Nelson', 'Edwards', 'Taylor', 'Robinson', 'King', 'Carter', 'Collins'],
+      colors: ['#2196F3', '#90CAF9', '#64B5F6', '#42A5F5', '#1E88E5', '#1976D2', '#1565C0', '#0D47A1', 
+      '#82B1FF', '#448AFF', '#2979FF', '#2962FF'],
+      names: ['Oliver', 'Jake', 'Noah', 'James', 'Jack', 'Connor', 'Liam', 'John', 'Harry', 
+      'Callum', 'Mason', 'Robert', 'Jacob', 'Jacob', 'Jacob', 'Michael', 'Charlie', 'Kyle', 
+      'William', 'William', 'Thomas', 'Joe', 'Ethan', 'David', 'George', 'Reece', 'Michael', 
+      'Richard', 'Oscar', 'Rhys', 'Alexander', 'Joseph', 'James', 'Charlie', 'James', 'Charles', 
+      'William', 'Damian', 'Daniel', 'Thomas', 'Amelia', 'Margaret', 'Emma', 'Mary', 'Olivia', 
+      'Samantha', 'Olivia', 'Patricia', 'Isla', 'Bethany'],
+      surnames: ['Smith', 'Anderson', 'Clark', 'Wright', 'Mitchell', 'Johnson', 'Thomas', 'Rodriguez', 
+      'Lopez', 'Perez', 'Williams', 'Jackson', 'Lewis', 'Hill', 'Roberts', 'Jones', 'White', 'Lee', 'Scott', 
+      'Turner', 'Brown', 'Harris', 'Walker', 'Green', 'Phillips', 'Davis', 'Martin', 'Hall', 'Adams', 'Campbell', 
+      'Miller', 'Thompson', 'Allen', 'Baker', 'Parker', 'Wilson', 'Garcia', 'Young', 'Gonzalez', 'Evans', 'Moore', 
+      'Martinez', 'Hernandez', 'Nelson', 'Edwards', 'Taylor', 'Robinson', 'King', 'Carter', 'Collins'],
     }),
 
     computed: {
@@ -243,7 +253,7 @@
         const surnamesLength = this.surnames.length
         const colorsLength = this.colors.length
 
-        return Array.from({ length: 10000 }, () => {
+        return Array.from({ length: 5 }, () => {
           const name = this.names[this.genRandomIndex(namesLength)]
           const surname = this.surnames[this.genRandomIndex(surnamesLength)]
 
@@ -261,5 +271,9 @@
         return Math.ceil(Math.random() * (length - 1))
       },
     },
+    setup(){
+      const isDrawerOpen = ref(false)
+      return {isDrawerOpen}
+    }
   }
 </script>
